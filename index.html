@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contador do Nosso Primeiro Beijo 💋</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+      text-align: center;
+    }
+    h1 { font-size: 2.2em; margin-bottom: 20px; }
+    #contador {
+      font-size: 4em;
+      font-weight: bold;
+      background: rgba(255,255,255,0.18);
+      padding: 20px 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 20px rgba(255,255,255,0.25);
+    }
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <h1>💞 Já se passaram...</h1>
+  <div id="contador">0 dias</div>
+  <footer>Desde o nosso primeiro beijo — 25/09/2025 💋</footer>
+
+  <script>
+    // Forma robusta: criar a data no fuso local usando (ano, mêsIndex, dia)
+    // mêsIndex: 0 = janeiro, 8 = setembro
+    const dataBeijo = new Date(2025, 8, 25); // 25/set/2025 no horário local
+
+    function atualizarContador() {
+      const hoje = new Date();
+      // Zeramos hora/min/seg/millis para comparar só por dias (evita diferenças horárias dentro do mesmo dia)
+      const hojeNoite = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+      const beijoNoite = new Date(dataBeijo.getFullYear(), dataBeijo.getMonth(), dataBeijo.getDate());
+
+      const diferencaMs = hojeNoite - beijoNoite;
+      let dias = Math.floor(diferencaMs / (1000 * 60 * 60 * 24));
+
+      // Proteção: se negativo, mostrar 0
+      if (isNaN(dias) || dias < 0) dias = 0;
+
+      document.getElementById('contador').textContent = dias + (dias === 1 ? ' dia' : ' dias');
+    }
+
+    // Atualiza imediatamente e depois a cada 5 minutos (bastante suficiente)
+    atualizarContador();
+    setInterval(atualizarContador, 5 * 60 * 1000);
+  </script>
+</body>
+</html>
