@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contador do Nosso Primeiro Beijo 💋</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
@@ -18,11 +18,13 @@
       margin: 0;
       color: #fff;
       text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
     }
 
     h1 {
       font-size: 2.4em;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     #contador {
@@ -45,16 +47,41 @@
       letter-spacing: 1px;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     }
+
+    img {
+      max-width: 80%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Ajustes para telas pequenas (celular) */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      #contador {
+        font-size: 3em;
+        padding: 15px 30px;
+      }
+
+      .subtitulo {
+        font-size: 1.5em;
+      }
+    }
   </style>
 </head>
 <body>
- <h1>💞 Já se passaram...</h1>
-<img src="https://raw.githubusercontent.com/JosueVicente1709/Contador/main/Imagem.jpg" 
-     alt="Nosso Primeiro Beijo" 
-     style="width:200px; height:auto; margin-bottom:20px; border-radius:10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-<div id="contador">0 dias</div>
-<div class="subtitulo">Desde o nosso primeiro beijo — 25/09/2025 💋</div>
+  <h1>💞 Já se passaram...</h1>
 
+  <!-- Imagem do GitHub -->
+  <img src="https://raw.githubusercontent.com/JosueVicente1709/Contador/main/Imagem.jpg" 
+       alt="Nosso Primeiro Beijo">
+
+  <div id="contador">0 dias</div>
+  <div class="subtitulo">Desde o nosso primeiro beijo — 25/09/2025 💋</div>
 
   <script>
     // Data e hora exatas do primeiro beijo (ano, mêsIndex, dia, hora, minuto)
@@ -77,5 +104,3 @@
   </script>
 </body>
 </html>
-
-
